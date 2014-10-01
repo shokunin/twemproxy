@@ -297,13 +297,13 @@
     +-------------------+------------+---------------------------------------------------------------------------------------------------------------------+
     |     EVALSHA       |    Yes*    | EVALSHA sha1 numkeys key [key ...] arg [arg ...]                                                                    |
     +-------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-    |    SCRIPT EXISTS  |    No      | SCRIPT EXISTS script [script ...]                                                                                   |
+    |    SCRIPT EXISTS  |    YES     | SCRIPT EXISTS script [script ...] (Machinezone specific)                                                            |
     +-------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-    |    SCRIPT FLUSH   |    No      | SCRIPT FLUSH                                                                                                        |
+    |    SCRIPT FLUSH   |    YES     | SCRIPT FLUSH (Machinezone specific)                                                                                 |
     +-------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-    |    SCRIPT KILL    |    No      | SCRIPT KILL                                                                                                         |
+    |    SCRIPT KILL    |    YES     | SCRIPT KILL  (Machinezone specific)                                                                                 |
     +-------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-    |    SCRIPT LOAD    |    No      | SCRIPT LOAD script                                                                                                  |
+    |    SCRIPT LOAD    |    YES     | SCRIPT LOAD script  (Machinezone specific)                                                                          |
     +-------------------+------------+---------------------------------------------------------------------------------------------------------------------+
 
  * EVAL and EVALSHA support is limited to scripts that take at least 1 key. If multiple keys are used, all keys must hash to the same server. You can ensure this by using the same [hashtag](notes/recommendation.md#hash-tags) for all keys. If you use more than 1 key, the proxy does no checking to verify that all keys hash to the same server, and the entire command is forwarded to the server that the first key hashes to
@@ -321,7 +321,7 @@
     +-------------------+------------+---------------------------------------------------------------------------------------------------------------------+
     |       QUIT        |    No      | QUIT                                                                                                                |
     +-------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-    |      SELECT       |    No      | SELECT index                                                                                                        |
+    |      SELECT       |    YES     | SELECT index (Machinezone specific)                                                                                 | 
     +-------------------+------------+---------------------------------------------------------------------------------------------------------------------+
 
 ### Server
